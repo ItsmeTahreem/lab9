@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieServiceService } from '../Services/movie-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-read',
@@ -17,9 +18,10 @@ export class ReadComponent implements OnInit {
     })
   }
 
-  onDelete(id:String){
-    console.log("Deleting movie with id: "+id);
-    this.movieService.DeleteMovie(id).subscribe();
-  }
 
+  onDelete(id: string){
+    console.log("Deleting item")
+    this.movieService.DeleteMovie(id).subscribe();
+    this.ngOnInit();
+    }
 }
